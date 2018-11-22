@@ -3,10 +3,6 @@ package myguiproject;
 import java.awt.Graphics;
 import java.util.LinkedList;
 
-/**
- *
- * @author u151197
- */
 public class MyMap extends javax.swing.JPanel {
 
     private World mundo;

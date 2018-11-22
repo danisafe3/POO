@@ -3,10 +3,6 @@ package myguiproject;
 import java.awt.Graphics;
 import java.util.LinkedList;
 
-/**
- *
- * @author u151197
- */
 public class PolygonalRegion extends Region{
     
     protected LinkedList<Point> points;

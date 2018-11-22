@@ -1,15 +1,5 @@
 package myguiproject;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author u151197
- */
 public class Point {
 
     protected int x;
@@ -31,6 +21,18 @@ public class Point {
     
     public String infoString() {
         return ("Point (" + x + "," + y + ")");
+    }
+    
+    public void move(int x, int y){
+        this.x += x;
+        this.y += y;
+    }
+    
+    public Vector difference(Point a){
+        int newX = this.x - a.getX();
+        int newY = this.y - a.getY();
+        Vector v = new Vector(newX, newY);
+        return v;
     }
 
 }

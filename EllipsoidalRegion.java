@@ -3,7 +3,6 @@ package myguiproject;
 import java.awt.Color;
 import java.awt.Graphics;
 
-
 public class EllipsoidalRegion extends Region{
     
     protected Point c;
