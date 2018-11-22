@@ -18,10 +18,12 @@ public class RectangularRegion extends PolygonalRegion{
         super(l);
     }
     public double getArea(){
-        
+        int x = 0;
+        int y = 0;        
         for(int i = 0; i < this.points.size();  i++ ){
-        int x = this.points.get(i).getX();
-        int y = this.points.get(i).getY();
+        x = this.points.get(i).getX();
+        y = this.points.get(i).getY();
     }
+        return x*y;
   }
 }
