@@ -1,18 +1,14 @@
-
 package myguiproject;
 
 import java.util.LinkedList;
 
-/**
- *
- * @author u150276
- */
-
 public class RectangularRegion extends PolygonalRegion{
+    
     public RectangularRegion(LinkedList l)
     {
         super(l);
     }
+    
     public double getArea(){
         int x1 = 0;
         int y1 = 0;    

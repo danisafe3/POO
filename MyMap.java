@@ -37,6 +37,7 @@ public class MyMap extends javax.swing.JPanel {
         ocean1Points.add(new Point(80, 240));
         ocean1Points.add(new Point(80, 160));
         ocean1Points.add(new Point(120, 80));
+        ocean1Points.add(new Point(264, 72));
         ocean1Points.add(new Point(320, 40));
         ocean1Points.add(new Point(400, 80));
         ocean1Points.add(new Point(480, 0));
@@ -52,8 +53,6 @@ public class MyMap extends javax.swing.JPanel {
         ocean2Points.add(new Point(780, 0));
         ocean2Points.add(new Point(480, 0));
         ocean2Points.add(new Point(544, 96));
-        ocean2Points.add(new Point(480, 80));
-        ocean2Points.add(new Point(456, 104));
         ocean2Points.add(new Point(480, 160));
         ocean2Points.add(new Point(560, 232));
         ocean2Points.add(new Point(480, 360));
@@ -87,8 +86,6 @@ public class MyMap extends javax.swing.JPanel {
         points1.add(new Point(480, 0));
         points1.add(new Point(400, 80));
         points1.add(new Point(480, 160));
-        points1.add(new Point(456, 104));
-        points1.add(new Point(480, 80));
         points1.add(new Point(544, 96));
         LinkedList<City> cities1 = new LinkedList<>();
         City c1 = new City(480, 40, "Madrid", 3100000);
@@ -99,7 +96,6 @@ public class MyMap extends javax.swing.JPanel {
         
         LinkedList<Point> points2 = new LinkedList<>();
         points2.add(new Point(320, 40));
-        points2.add(new Point(120, 80));
         points2.add(new Point(264, 72));
         points2.add(new Point(320, 160));
         points2.add(new Point(352, 176));
@@ -114,28 +110,18 @@ public class MyMap extends javax.swing.JPanel {
         
         LinkedList<Point> points3 = new LinkedList<>();
         points3.add(new Point(120, 80));
-        points3.add(new Point(160, 160));
+        points3.add(new Point(80, 160));
+        points3.add(new Point(80, 240));
+        points3.add(new Point(160, 280));
         points3.add(new Point(320, 160));
         points3.add(new Point(264, 72));
         LinkedList<City> cities3 = new LinkedList<>();
-        City c3 = new City(160, 96, "Roma", 2800000);
+        City c3 = new City(160, 200, "Paris", 2200000);
         cities3.add(c3);
-        cities3.add(new City(240, 136, "Florencia", 382000));
-        Country country3 = new Country(points3, "Italia", cities3, c3);
-        System.out.println("Added Country");
-        
-        LinkedList<Point> points4 = new LinkedList<>();
-        points4.add(new Point(120, 80));
-        points4.add(new Point(80, 160));
-        points4.add(new Point(80, 240));
-        points4.add(new Point(160, 280));
-        points4.add(new Point(320, 160));
-        points4.add(new Point(160, 160));
-        LinkedList<City> cities4 = new LinkedList<>();
-        City c4 = new City(160, 200, "Paris", 2200000);
-        cities4.add(c4);
-        cities4.add(new City(240, 176, "Toulouse", 466000));
-        Country country4 = new Country(points4, "Francia", cities4, c4);
+        cities3.add(new City(160, 96, "Marsella", 850000));
+        cities3.add(new City(240, 136, "Lyon", 500000));
+        cities3.add(new City(240, 176, "Toulouse", 460000));
+        Country country3 = new Country(points3, "Francia", cities3, c3);
         System.out.println("Added Country");
         
         LinkedList<Lake> lakes1 = new LinkedList<>();
@@ -148,13 +134,11 @@ public class MyMap extends javax.swing.JPanel {
         countries1.add(country1);
         countries1.add(country2);
         countries1.add(country3);
-        countries1.add(country4);
         Continent continent1 = new Continent("Continent1", countries1, lakes1);
         
         LinkedList<Point> points5 = new LinkedList<>();
         points5.add(new Point(560, 232));
         points5.add(new Point(440, 256));
-        points5.add(new Point(400, 320));
         points5.add(new Point(480, 360));
         LinkedList<City> cities5 = new LinkedList<>();
         City c5 = new City(480, 320, "Manila", 1780000);
@@ -162,13 +146,11 @@ public class MyMap extends javax.swing.JPanel {
         Country country5 = new Country(points5, "Filipinas", cities5, c5);
         System.out.println("Added Country");
 
-        
         LinkedList<Point> points6 = new LinkedList<>();
         points6.add(new Point(320, 240));
         points6.add(new Point(240, 400));
         points6.add(new Point(360, 440));
         points6.add(new Point(480, 360));
-        points6.add(new Point(400, 320));
         points6.add(new Point(440, 256));
         LinkedList<City> cities6 = new LinkedList<>();
         City c6 = new City(360, 360, "P.Moresby", 364000);

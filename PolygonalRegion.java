@@ -2,6 +2,7 @@ package myguiproject;
 
 import java.awt.Graphics;
 import java.util.LinkedList;
+import static java.lang.Boolean.*;
 
 public class PolygonalRegion extends Region{
     
@@ -17,7 +18,7 @@ public class PolygonalRegion extends Region{
 
         int x1, y1, x2, y2;
         
-        if (this.points.size() < 2) {
+        if (this.points.size() < 3) {
             System.out.println("ERROR: Points missing");
         }
 
@@ -79,5 +80,42 @@ public class PolygonalRegion extends Region{
         }
         
     }
+    
+    public boolean isPointInside(Point p){
+        
+        int sign = 0;
+        
+        Point q1, q2;
+        
+        for (int i = 0; i < this.points.size(); i++) {
+            
+            q1 = this.points.get(i);
 
+            if (i == this.points.size() - 1) {
+                q2 = this.points.get(0);
+            } else {
+                q2 = this.points.get(i + 1);
+            }
+            
+            Vector q2q1 = q2.difference(q1);
+            Vector pq1 = p.difference(q1);
+            
+            int crossProd = q2q1.crossProduct(pq1);
+            
+            if (i == 0){
+                if (crossProd > 0)
+                    sign = 1;
+                else
+                    sign = -1;
+            }else{
+                int y = crossProd * sign;
+                if (y < 0)
+                   return FALSE;
+            }
+            
+        }
+        
+        return TRUE;
+    }
+    
 }
