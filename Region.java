@@ -4,8 +4,15 @@ import java.awt.Graphics;
 
 
 public abstract class Region {
+    private Color fillColor;
+
+    public Region(Color fillColor) {
+        this.fillColor = fillColor;
+    }
     
     public abstract double getArea();
-    public abstract void draw(Graphics g, int x, int y);
-    
+    public void setFillColor(Color c){
+        
+    }
+    public abstract boolean isPointInside(Point p);
 }
