@@ -2,13 +2,10 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
- */
+ *
 package myguiproject;
 import java.math.*;
-/**
- *
- * @author U150276
- */
+
 public class Color {
     private float x;
     private float y; 
@@ -79,3 +76,4 @@ public class Color {
         this.z = (B+m)*255; //this.z es B = 0
     }
 }
+*/

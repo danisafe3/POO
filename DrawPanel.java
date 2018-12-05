@@ -2,16 +2,16 @@ package myguiproject;
 
 import java.awt.event.*;
 import java.awt.*;
-import static java.lang.Boolean.TRUE;
+import static java.lang.Boolean.*;
 import javax.swing.*;
 import java.util.*;
 
-public class DrawPanel extends JPanel implements MouseListener{
+public class DrawPanel extends JPanel{
 	protected LinkedList< Entity > drawables;
         protected LinkedList< Entity > selection;
 	public DrawPanel() {
 		drawables = new LinkedList< Entity >();
-                addMouseListener( this );
+                //addMouseListener( this );
 	}
 
 	public void addDrawable( Entity entity ) {
@@ -28,11 +28,13 @@ public class DrawPanel extends JPanel implements MouseListener{
 		for ( int i = 0; i < drawables.size(); ++i )
 			drawables.get( i ).translate( dx, dy );
 	}
+        
+        /*
         @Override
         public void mousePressed(MouseEvent e){
-        Point c= new Point(e.getX(),e.getY());
-        if (isPointInside(Point c) == TRUE)
-        System.out.println("'The point is inside");
+            Point c = new Point(e.getX(),e.getY());
+            if (isPointInside(c) == TRUE)
+            System.out.println("The point is inside");
         }
         
         @Override
@@ -42,4 +44,5 @@ public class DrawPanel extends JPanel implements MouseListener{
         public void mouseExited(MouseEvent e);
         @Override
         public void mouseClicked(MouseEvent e);
+*/
 }

@@ -1,12 +1,13 @@
 package myguiproject;
 
+import java.awt.Color;
 import java.util.LinkedList;
 
 public class RectangularRegion extends PolygonalRegion{
     
-    public RectangularRegion(LinkedList l)
+    public RectangularRegion(LinkedList l, Color lineColor, Color fillColor)
     {
-        super(l);
+        super(l, lineColor, fillColor);
     }
     
     public double getArea(){

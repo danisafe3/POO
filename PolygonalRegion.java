@@ -1,6 +1,7 @@
 package myguiproject;
 
 import java.awt.Graphics;
+import java.awt.Color;
 import java.util.LinkedList;
 import static java.lang.Boolean.*;
 
@@ -8,7 +9,8 @@ public class PolygonalRegion extends Region{
     
     protected LinkedList<Point> points;
 
-    public PolygonalRegion(LinkedList l) {
+    public PolygonalRegion(LinkedList l, Color lineColor, Color fillColor) {
+        super(lineColor, fillColor);
         this.points = l;
     }
 
@@ -48,7 +50,7 @@ public class PolygonalRegion extends Region{
         return area;
     }
 
-    public void draw(Graphics g, int x, int y) {
+    public void draw(Graphics g) {
 
         int x1, y1, x2, y2;
         int check = 0;
@@ -70,7 +72,7 @@ public class PolygonalRegion extends Region{
                 y2 = this.points.get(i + 1).getY();
             }
 
-            g.drawLine((int) (x1 + x), (int) (y1 + y), (int) (x2 + x), (int) (y2 + y));
+            g.drawLine(x1, y1, x2, y2);
 
             if (check == 1){
                 System.out.println("   Drawn line between " + this.points.get(i).infoString() + " and " + this.points.get(0).infoString());
@@ -117,5 +119,11 @@ public class PolygonalRegion extends Region{
         
         return TRUE;
     }
+
+    public void translate(int dx, int dy){
+        
+    }
     
 }
+
+
