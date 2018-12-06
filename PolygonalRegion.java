@@ -52,29 +52,36 @@ public class PolygonalRegion extends Region{
 
     public void draw(Graphics g) {
         int size = this.points.size();
-        int xArr[] = new int [size];
-        int yArr[] = new int[size];
-        int x, y;
+        int x1, y1, x2, y2;
+        int x[] = new int[size];
+        int y[] = new int[size];
         int check = 0;
-        if (this.points.size() < 2) {
+        
+        if (this.points.size() < 3) {
             System.out.println("ERROR: Points missing");
         }
+        
+        for (int i = 0; i < size; i++){
+            x[i] = this.points.get(i).getX();
+            y[i] = this.points.get(i).getY();
+        }
+        
+        g.fillPolygon(x, y, size);
 
-        for (int i = 0; i < this.points.size(); i++) {
-            xArr[i] = this.points.get(i).getX();
-            yArr[i] = this.points.get(i).getY();
-
-            if (i == this.points.size() - 1) {
-                x = this.points.get(0).getX();
-                y = this.points.get(0).getY();
+        for (int i = 0; i < size; i++) {
+            x1 = x[i];
+            y1 = y[i];
+            
+            if (i == size - 1) {
+                x2 = this.points.get(0).getX();
+                y2 = this.points.get(0).getY();
                 check = 1;
             } else {
-                x = this.points.get(i + 1).getX();
-                y = this.points.get(i + 1).getY();
+                x2 = this.points.get(i + 1).getX();
+                y2 = this.points.get(i + 1).getY();
             }
-            g.setColor(this.lineColor);
-            g.drawLine(xArr[i], yArr[i], x, y);
-            
+
+            g.drawLine(x1, y1, x2, y2);
 
             if (check == 1){
                 System.out.println("   Drawn line between " + this.points.get(i).infoString() + " and " + this.points.get(0).infoString());
@@ -82,9 +89,7 @@ public class PolygonalRegion extends Region{
                 System.out.println("   Drawn line between " + this.points.get(i).infoString() + " and " + this.points.get(i+1).infoString());
             }
         }
-            g.setColor(this.fillColor);
-            g.fillPolygon(xArr, yArr, size);
-
+        
     }
     
     public boolean isPointInside(Point p){
@@ -125,14 +130,12 @@ public class PolygonalRegion extends Region{
     }
 
     public void translate(int dx, int dy){
+      
         for (int i = 0; i < this.points.size(); i++) {
-            
-            this.points.get(i).x  = + dx;
-            this.points.get(i).y  = + dy;
-            
+            this.points.get(i).x += dx;
+            this.points.get(i).y += dy;
         }
     }
     
 }
-
 
