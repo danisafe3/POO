@@ -1,38 +1,30 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package myguiproject;
 
 import java.awt.Graphics;
-import static java.lang.Boolean.FALSE;
-import static java.lang.Boolean.TRUE;
+import java.awt.Color;
+import static java.lang.Boolean.*;
 
-/**
- *
- * @author gopbc
- */
-public class Text {
+public class Text extends Entity{
     private Point c;
     private String text;
 
-    public Text(Point c, String text) {
+    public Text(Point c, String text, Color color) {
+        super(color);
         this.c = c;
         this.text = text;
     }
     
-    public void  draw(Graphics g){
-        
+    public void draw(Graphics g){
+        g.setColor(this.lineColor);
         g.drawString(this.text, this.c.x, this.c.y);
-        }
-    public void move(Vector v){
-        this.c.x +=v.x;
-        this.c.y+=v.y;
+    }
+    
+    public void translate(int dx, int dy){
+        this.c.x += dx;
+        this.c.y += dy;
     }
     
     public boolean isPointClose(Point p){
-     
         
         return TRUE;
         

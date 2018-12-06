@@ -66,6 +66,7 @@ public class PolygonalRegion extends Region{
             y[i] = this.points.get(i).getY();
         }
         
+        g.setColor(this.fillColor);
         g.fillPolygon(x, y, size);
 
         for (int i = 0; i < size; i++) {
@@ -81,6 +82,7 @@ public class PolygonalRegion extends Region{
                 y2 = this.points.get(i + 1).getY();
             }
 
+            g.setColor(lineColor);
             g.drawLine(x1, y1, x2, y2);
 
             if (check == 1){
@@ -130,12 +132,13 @@ public class PolygonalRegion extends Region{
     }
 
     public void translate(int dx, int dy){
-      
-        for (int i = 0; i < this.points.size(); i++) {
+        
+        for (int i = 0; i < this.points.size(); i++) {            
             this.points.get(i).x += dx;
             this.points.get(i).y += dy;
         }
     }
     
 }
+
 
