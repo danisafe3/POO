@@ -51,28 +51,31 @@ public class PolygonalRegion extends Region{
     }
 
     public void draw(Graphics g) {
-
-        int x1, y1, x2, y2;
+        int size = this.points.size();
+        int x1[] = new int [size];
+        int y1[] = new int[size];
+        int x2[] = new int [size]; 
+        int y2[] = new int [size];
         int check = 0;
-        
         if (this.points.size() < 2) {
             System.out.println("ERROR: Points missing");
         }
 
         for (int i = 0; i < this.points.size(); i++) {
-            x1 = this.points.get(i).getX();
-            y1 = this.points.get(i).getY();
+            x1[i] = this.points.get(i).getX();
+            y1[i] = this.points.get(i).getY();
 
             if (i == this.points.size() - 1) {
-                x2 = this.points.get(0).getX();
-                y2 = this.points.get(0).getY();
+                x2[i] = this.points.get(0).getX();
+                y2[i] = this.points.get(0).getY();
                 check = 1;
             } else {
-                x2 = this.points.get(i + 1).getX();
-                y2 = this.points.get(i + 1).getY();
+                x2[i] = this.points.get(i + 1).getX();
+                y2[i] = this.points.get(i + 1).getY();
             }
-
-            g.drawLine(x1, y1, x2, y2);
+            g.setColor(this.lineColor);
+            g.drawLine(x1[i], y1[i], x2[i], y2[i]);
+            
 
             if (check == 1){
                 System.out.println("   Drawn line between " + this.points.get(i).infoString() + " and " + this.points.get(0).infoString());
@@ -80,7 +83,9 @@ public class PolygonalRegion extends Region{
                 System.out.println("   Drawn line between " + this.points.get(i).infoString() + " and " + this.points.get(i+1).infoString());
             }
         }
-        
+            g.setColor(this.fillColor);
+            g.fillPolygon(x2, y2, size);
+
     }
     
     public boolean isPointInside(Point p){
@@ -121,7 +126,12 @@ public class PolygonalRegion extends Region{
     }
 
     public void translate(int dx, int dy){
-        
+        for (int i = 0; i < this.points.size(); i++) {
+            
+            this.points.get(i).x  = + dx;
+            this.points.get(i).y  = + dy;
+            
+        }
     }
     
 }

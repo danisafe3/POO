@@ -30,10 +30,18 @@ public class EllipsoidalRegion extends Region{
     }
     
     public boolean isPointInside(Point p){
-        return FALSE;
+        double res;
+        res = Math.pow((p.x-this.c.x),2)/Math.pow(r1,2) + 
+                Math.pow((p.y-this.c.y),2)/Math.pow(r2,2); 
+        if (res<=1)
+            return TRUE;
+        else
+            return FALSE;
     }
     
     public void translate(int dx, int dy){
         
+        this.c.x+=dx;
+        this.c.y+=dy;
     }
 }

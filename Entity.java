@@ -5,7 +5,7 @@ import java.awt.Color;
 
 abstract public class Entity {
 	protected Color lineColor;
-
+        protected float alpha;
 	public Entity( Color lcinit ) {
 		lineColor = lcinit;
 	}

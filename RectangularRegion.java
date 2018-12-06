@@ -11,10 +11,7 @@ public class RectangularRegion extends PolygonalRegion{
     }
     
     public double getArea(){
-        int x1 = 0;
-        int y1 = 0;    
-        int x2 = 0; 
-        int y2 = 0;
+        int x1,y1,x2,y2;
         x1 = this.points.get(0).getX();
         y1 = this.points.get(0).getY();
         x2 = this.points.get(2).getX();
