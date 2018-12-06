@@ -52,29 +52,28 @@ public class PolygonalRegion extends Region{
 
     public void draw(Graphics g) {
         int size = this.points.size();
-        int x1[] = new int [size];
-        int y1[] = new int[size];
-        int x2[] = new int [size]; 
-        int y2[] = new int [size];
+        int xArr[] = new int [size];
+        int yArr[] = new int[size];
+        int x, y;
         int check = 0;
         if (this.points.size() < 2) {
             System.out.println("ERROR: Points missing");
         }
 
         for (int i = 0; i < this.points.size(); i++) {
-            x1[i] = this.points.get(i).getX();
-            y1[i] = this.points.get(i).getY();
+            xArr[i] = this.points.get(i).getX();
+            yArr[i] = this.points.get(i).getY();
 
             if (i == this.points.size() - 1) {
-                x2[i] = this.points.get(0).getX();
-                y2[i] = this.points.get(0).getY();
+                x = this.points.get(0).getX();
+                y = this.points.get(0).getY();
                 check = 1;
             } else {
-                x2[i] = this.points.get(i + 1).getX();
-                y2[i] = this.points.get(i + 1).getY();
+                x = this.points.get(i + 1).getX();
+                y = this.points.get(i + 1).getY();
             }
             g.setColor(this.lineColor);
-            g.drawLine(x1[i], y1[i], x2[i], y2[i]);
+            g.drawLine(xArr[i], yArr[i], x, y);
             
 
             if (check == 1){
@@ -84,7 +83,7 @@ public class PolygonalRegion extends Region{
             }
         }
             g.setColor(this.fillColor);
-            g.fillPolygon(x2, y2, size);
+            g.fillPolygon(xArr, yArr, size);
 
     }
     
