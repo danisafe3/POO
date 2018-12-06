@@ -27,7 +27,8 @@ public class Text {
         g.drawString(this.text, this.c.x, this.c.y);
         }
     public void move(Vector v){
-        
+        this.c.x =+v.x;
+        this.c.y=+v.y;
     }
     
     public boolean isPointClose(Point p){
