@@ -1,0 +1,102 @@
+<books>
+	<book>
+		<title>A Tale of Two Cities</title>
+		<author>Charles Dickens</author>
+		<date>1859/01/01</date>
+		<place>England</place>
+		<isbn>9780141439600</isbn>
+		<price>19.99</price>
+		<currency>EUR</currency>
+		<copies>4</copies>
+	</book>
+	<book>
+		<title>Le Petit Prince</title>
+		<author>Antoine de Saint-Exupéry</author>
+		<date>1943/10/01</date>
+		<place>France</place>
+		<isbn>9780152023980</isbn>
+		<price>15.99</price>
+		<currency>EUR</currency>
+		<copies>7</copies>
+	</book>
+	<book>
+		<title>The Lord of the Rings</title>
+		<author>J. R. R. Tolkien</author>
+		<date>1954/02/01</date>
+		<place>England</place>
+		<isbn>9780618260584</isbn>
+		<price>22.99</price>
+		<currency>EUR</currency>
+		<copies>3</copies>
+	</book>
+	<book>
+		<title>The Hobbit</title>
+		<author>J. R. R. Tolkien</author>
+		<date>1937/07/01</date>
+		<place>England</place>
+		<isbn>9780618150823</isbn>
+		<price>14.99</price>
+		<currency>EUR</currency>
+		<copies>12</copies>
+	</book>
+	<book>
+		<title>Dream of the Red Chamber</title>
+		<author>Cao Xueqin</author>
+		<date>1754/11/01</date>
+		<place>China</place>
+		<isbn>9780146001765</isbn>
+		<price>9.99</price>
+		<currency>EUR</currency>
+		<copies>2</copies>
+	</book>
+	<book>
+		<title>And Then There Were None</title>
+		<author>Agatha Christie</author>
+		<date>1939/09/01</date>
+		<place>England</place>
+		<isbn>9780007136834</isbn>
+		<price>12.99</price>
+		<currency>EUR</currency>
+		<copies>15</copies>
+	</book>
+	<book>
+		<title>The Lion, the Witch and the Wardrobe</title>
+		<author>C. S. Lewis</author>
+		<date>1950/03/01</date>
+		<place>England</place>
+		<isbn>9780064471046</isbn>
+		<price>14.99</price>
+		<currency>EUR</currency>
+		<copies>11</copies>
+	</book>
+	<book>
+		<title>She</title>
+		<author>H. Rider Haggard</author>
+		<date>1887/04/01</date>
+		<place>England</place>
+		<isbn>9780192835505</isbn>
+		<price>18.99</price>
+		<currency>EUR</currency>
+		<copies>6</copies>
+	</book>
+	<book>
+		<title>The Da Vinci Code</title>
+		<author>Dan Brown</author>
+		<date>2003/09/01</date>
+		<place>USA</place>
+		<isbn>9780552159715</isbn>
+		<price>19.99</price>
+		<currency>EUR</currency>
+		<copies>7</copies>
+	</book>
+	<book>
+		<title>Think and Grow Rich</title>
+		<author>Napoleon Hill</author>
+		<date>1937/08/01</date>
+		<place>USA</place>
+		<isbn>9781557427830</isbn>
+		<price>7.99</price>
+		<currency>EUR</currency>
+		<copies>3</copies>
+	</book>
+</books>
