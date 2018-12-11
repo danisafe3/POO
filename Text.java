@@ -15,7 +15,10 @@ public class Text extends Entity{
     }
     
     public void draw(Graphics g){
-        g.setColor(this.lineColor);
+        if(this.lineColor == null)
+            g.setColor(Color.BLACK);
+        else
+            g.setColor(this.lineColor);
         g.drawString(this.text, this.c.x, this.c.y);
     }
     
@@ -27,7 +30,6 @@ public class Text extends Entity{
     public boolean isPointClose(Point p){
         
         return TRUE;
-        
     }
     public boolean isSelected(Point p){
         

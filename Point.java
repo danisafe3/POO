@@ -18,12 +18,11 @@ public class Point {
         return this.y;
     }
     
-    
     public String infoString() {
         return ("Point (" + x + "," + y + ")");
     }
     
-    public void move(int x, int y){
+    public void translate(int x, int y){
         this.x += x;
         this.y += y;
     }

@@ -40,7 +40,7 @@ public class EllipsoidalRegion extends Region{
     }
     
     public void translate(int dx, int dy){
-        this.c.x+=dx;
-        this.c.y+=dy;
+        this.c.x += dx;
+        this.c.y += dy;
     }
 }
