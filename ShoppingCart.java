@@ -6,6 +6,7 @@
 package bookstore;
 import java.util.HashSet;
 import java.util.Currency;
+import org.w3c.dom.Element;
 /**
  *
  * @author gopbc
@@ -21,17 +22,20 @@ public class ShoppingCart extends BookCollection{
     public void pay(int visa, String name, double price, Currency c){
         
     }
-    /*
+
+    
     public double totalPrice(){
-        double price = Double.parseDouble( myString );
+        double price = 0; 
+//Suponemos que todos los precios son de la misma divisa ya que no existe un 
+//metodo para cambiar de divisa
+        for (Stock element : this.collection){
+            price += element.totalPrice();
+           }
         return price;
     }
     
     public String checkout(){
-        ShoppingCart compra = new ShoppingCart();
-        
+       return null;
  
-        
     }
 }
-*/

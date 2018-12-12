@@ -15,11 +15,11 @@ package bookstore;
  * @author anders
  */
 public class BookStore extends javax.swing.JFrame {
-	protected BookCollectionInterface catalog;
-	protected ShoppingCartInterface cart;
+	protected Catalog catalog;
+	protected ShoppingCart cart;
 
     /** Creates new form BookStore */
-    public BookStore( BookCollectionInterface catinit, ShoppingCartInterface cartinit ) {
+    public BookStore( Catalog catinit, ShoppingCart cartinit ) {
 		catalog = catinit;
 		cart = cartinit;
         initComponents();

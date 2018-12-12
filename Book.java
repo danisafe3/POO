@@ -14,14 +14,14 @@ public class Book {
     private final String author;
     private final Date publicationDate;
     private final String publicationPlace;
-    private final int IBN;
+    private final double ISBN;
 
-    public Book(String title, String author, Date publicationDate, String publicationPlace, int IBN) {
+    public Book(String title, String author, Date publicationDate, String publicationPlace, double ISBN) {
         this.title = title;
         this.author = author;
         this.publicationDate = publicationDate;
         this.publicationPlace = publicationPlace;
-        this.IBN = IBN;
+        this.ISBN = ISBN;
     }
     public String getTitle(){
         return this.title;
@@ -36,8 +36,8 @@ public class Book {
         return this.publicationPlace;
     }
 
-    public int getIBN() {
-        return this.IBN;
+    public double getISBN() {
+        return this.ISBN;
     }
  
 }

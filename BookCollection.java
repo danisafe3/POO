@@ -13,42 +13,42 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 public abstract class BookCollection implements BookCollectionInterface {
-	protected HashSet< StockInterface > collection;
+	protected HashSet< Stock > collection;
 
 	public BookCollection() {
-		collection = new HashSet< StockInterface >();
+		collection = new HashSet< Stock >();
 	}
 
 	public String[] booktitles() {
 		int index = 0;
 		String[] result = new String[collection.size()];
-		for ( StockInterface stock : collection ) {
-			result[index] = stock.getBooktitle();
+		for ( Stock stock : collection ) {
+			result[index] = stock.getBookTitle();
 			index++;
 		}
 		return result;
 	}
 
-	private StockInterface getStock( String booktitle ) {
-		for ( StockInterface stock : collection ) {
-			if ( booktitle.equals( stock.getBooktitle() ) )
+	private Stock getStock( String booktitle ) {
+		for ( Stock stock : collection ) {
+			if ( booktitle.equals( stock.getBookTitle() ) )
 				return stock;
 		}
 		return null;
 	}
 
-    public int numberOfCopies(String booktitle) { //le pasamos el titulo del libro y 
-        StockInterface stock = getStock(booktitle);
+    public int numberOfCopies(String booktitle) { //le pasamos el titulo del libro y cogemos el stock del libro, luego llamamos al metodo numberOfCopies() para obtener su nºde copias
+        Stock stock = getStock(booktitle);
         return stock.numberOfCopies();
     }
 
     public void addCopies(int numberOfCopies, String booktitle) {
-        StockInterface stock = getStock(booktitle);
+        Stock stock = getStock(booktitle);
         stock.addCopies(numberOfCopies);
     }
 
     public void removeCopies(int numberOfCopies, String booktitle) {
-        StockInterface stock = getStock(booktitle);
+        Stock stock = getStock(booktitle);
         stock.removeCopies(numberOfCopies);
     }
 

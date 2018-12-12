@@ -9,22 +9,23 @@ import java.util.Currency;
  *
  * @author gopbc
  */
-public class Stock {
+public class Stock implements StockInterface{
     private Book book;
     private int copies;
     private double price;
     private Currency c;
 
-    public Stock(Book book, int copias, Currency c) {
+    public Stock(Book book, int copias,double price, Currency c) {
         this.book = book;
         this.copies = copias;
+        this.price = price;
         this.c = c;
     }
     
     public Book getBook(){
         return this.book;
     }
-    public String getBookTiltle(){
+    public String getBookTitle(){
         return this.book.getTitle();
     }
     public int numberOfCopies(){
