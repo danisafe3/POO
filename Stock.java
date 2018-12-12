@@ -11,35 +11,34 @@ import java.util.Currency;
  */
 public class Stock {
     private Book book;
-    private int copias;
+    private int copies;
+    private double price;
     private Currency c;
 
     public Stock(Book book, int copias, Currency c) {
         this.book = book;
-        this.copias = copias;
+        this.copies = copias;
         this.c = c;
     }
     
     public Book getBook(){
-        
-            return this.book;
+        return this.book;
     }
     public String getBookTiltle(){
         return this.book.getTitle();
     }
     public int numberOfCopies(){
-        return this.copias;
+        return this.copies;
     }
     public void addCopies(int numberOfCopies){
-        this.copias = this.copias + numberOfCopies;
+        this.copies = this.copies + numberOfCopies;
     }
     public void removeCopies(int numberOfCopies){
-        this.copias = this.copias - numberOfCopies;
+        this.copies = this.copies - numberOfCopies;
     }
-    /*
+    
     public double totalPrice(){
-        
-        double price = Double.parseDouble( myString );
+        double price = this.price * this.copies;
         return price;
-    }*/
+    }
 }

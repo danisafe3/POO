@@ -37,45 +37,45 @@ public abstract class BookCollection implements BookCollectionInterface {
 		return null;
 	}
 
-	public int numberOfCopies( String booktitle ) {
-		StockInterface stock = getStock( booktitle );
-		return stock.numberOfCopies();
-	}
+    public int numberOfCopies(String booktitle) { //le pasamos el titulo del libro y 
+        StockInterface stock = getStock(booktitle);
+        return stock.numberOfCopies();
+    }
 
-	public void addCopies( int numberOfCopies, String booktitle ) {
-		StockInterface stock = getStock( booktitle );
-		stock.addCopies( numberOfCopies );
-	}
+    public void addCopies(int numberOfCopies, String booktitle) {
+        StockInterface stock = getStock(booktitle);
+        stock.addCopies(numberOfCopies);
+    }
 
-	public void removeCopies( int numberOfCopies, String booktitle ) {
-		StockInterface stock = getStock( booktitle );
-		stock.removeCopies( numberOfCopies );
-	}
+    public void removeCopies(int numberOfCopies, String booktitle) {
+        StockInterface stock = getStock(booktitle);
+        stock.removeCopies(numberOfCopies);
+    }
 
-	public static LinkedList< String[] > readCatalog( String filename ) {
-		LinkedList< String[] > books = new LinkedList< String[] >();
-		String[] tokens = { "title", "author", "date", "place",
-		                    "isbn", "price", "currency", "copies" };
+    public static LinkedList< String[]> readCatalog(String filename) {
+        LinkedList< String[]> books = new LinkedList< String[]>();
+        String[] tokens = {"title", "author", "date", "place",
+            "isbn", "price", "currency", "copies"};
         try {
-            File input = new File( filename );
+            File input = new File(filename);
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder db = dbf.newDocumentBuilder();
-            Document doc = db.parse( input );
+            Document doc = db.parse(input);
             doc.getDocumentElement().normalize();
-            NodeList list = doc.getElementsByTagName( "book" );
-			for ( int i = 0; i < list.getLength(); ++i ) {
-            	Element element = (Element)list.item( i );
-				String[] book = new String[tokens.length];
-				for ( int j = 0; j < tokens.length; ++j ) {
-					NodeList nl = element.getElementsByTagName( tokens[j] );
-					Node node = nl.item( 0 ).getChildNodes().item( 0 );
-					book[j] = node.getNodeValue();
-				}
-				books.add( book );
+            NodeList list = doc.getElementsByTagName("book");
+            for (int i = 0; i < list.getLength(); ++i) {
+                Element element = (Element) list.item(i);
+                String[] book = new String[tokens.length];
+                for (int j = 0; j < tokens.length; ++j) {
+                    NodeList nl = element.getElementsByTagName(tokens[j]);
+                    Node node = nl.item(0).getChildNodes().item(0);
+                    book[j] = node.getNodeValue();
+                }
+                books.add(book);
             }
-        } catch ( Exception e ) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-		return books;
-	}
+        return books;
+    }
 }
