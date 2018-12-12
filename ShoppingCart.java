@@ -11,11 +11,14 @@ import java.util.Currency;
  * @author gopbc
  */
 public class ShoppingCart extends BookCollection{
-    
-    public ShoppingCart(HashSet S){    
-}
+    private Catalog catalog;
+
+    public ShoppingCart(Catalog catinit) {
+        this.catalog = catinit;
+    }
+   
         
-    public void pay(int visa, String name, float price, Currency c){
+    public void pay(int visa, String name, double price, Currency c){
         
     }
     /*
@@ -25,7 +28,9 @@ public class ShoppingCart extends BookCollection{
     }
     
     public String checkout(){
+        ShoppingCart compra = new ShoppingCart();
         
-        return ;
+ 
+        
     }*/
 }

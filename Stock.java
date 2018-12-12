@@ -21,21 +21,25 @@ public class Stock {
     }
     
     public Book getBook(){
+        
             return this.book;
     }
     public String getBookTiltle(){
-        
+        return this.book.getTitle();
     }
     public int numberOfCopies(){
-        
+        return this.copias;
     }
     public void addCopies(int numberOfCopies){
-        
+        this.copias = this.copias + numberOfCopies;
     }
     public void removeCopies(int numberOfCopies){
-        
+        this.copias = this.copias - numberOfCopies;
     }
+    /*
     public double totalPrice(){
         
-    }
+        double price = Double.parseDouble( myString );
+        return price;
+    }*/
 }

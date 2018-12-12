@@ -11,6 +11,9 @@ import java.util.HashSet;
  */
 public class Catalog extends BookCollection{
     public Catalog(HashSet s){
-        
+        super();
+        collection = s;
+                
     }
+    
 }

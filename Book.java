@@ -10,11 +10,11 @@ import java.util.Date;
  * @author gopbc
  */
 public class Book {
-    private String title;
-    private String author;
-    private Date publicationDate;
-    private String publicationPlace;
-    private int IBN;
+    private final String title;
+    private final String author;
+    private final Date publicationDate;
+    private final String publicationPlace;
+    private final int IBN;
 
     public Book(String title, String author, Date publicationDate, String publicationPlace, int IBN) {
         this.title = title;
@@ -24,18 +24,20 @@ public class Book {
         this.IBN = IBN;
     }
     public String getTitle(){
-        
+        return this.title;
     }
     public String getAuthor(){
-        
+        return this.author;
     }
     public Date getPublicationDate(){
-        
+        return this.publicationDate;
     }
     public String getPublicationPlace(){
-        
+        return this.publicationPlace;
     }
-    public int getISBN(){
-        
+
+    public int getIBN() {
+        return this.IBN;
     }
+ 
 }
