@@ -11,7 +11,7 @@ import org.w3c.dom.Element;
  *
  * @author gopbc
  */
-public class ShoppingCart extends BookCollection{
+public class ShoppingCart extends BookCollection implements ShoppingCartInterface{
     private Catalog catalog;
 
     public ShoppingCart(Catalog catinit) {
