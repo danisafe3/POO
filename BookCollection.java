@@ -13,24 +13,24 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 public abstract class BookCollection implements BookCollectionInterface {
-	protected HashSet< Stock > collection;
+	protected HashSet< StockInterface > collection;
 
 	public BookCollection() {
-		collection = new HashSet< Stock >();
+		collection = new HashSet< StockInterface >();
 	}
 
 	public String[] booktitles() {
 		int index = 0;
 		String[] result = new String[collection.size()];
-		for ( Stock stock : collection ) {
+		for ( StockInterface stock : collection ) {
 			result[index] = stock.getBookTitle();
 			index++;
 		}
 		return result;
 	}
 
-	private Stock getStock( String booktitle ) {
-		for ( Stock stock : collection ) {
+	public Stock getStock( String booktitle ) {
+		for ( StockInterface stock : collection ) {
 			if ( booktitle.equals( stock.getBookTitle() ) )
 				return stock;
 		}

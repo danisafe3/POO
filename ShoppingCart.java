@@ -11,7 +11,7 @@ import org.w3c.dom.Element;
  *
  * @author gopbc
  */
-public class ShoppingCart extends BookCollection{
+public class ShoppingCart extends BookCollection implements ShoppingCartInterface{
     private Catalog catalog;
 
     public ShoppingCart(Catalog catinit) {
@@ -19,16 +19,22 @@ public class ShoppingCart extends BookCollection{
     }
    
         
-    public void pay(int visa, String name, double price, Currency c){
-        
+    
+  public void addCopies(int numberOfCopies, String booktitle) {
+        Stock stock = getStock(booktitle);
+        stock.addCopies(numberOfCopies);
     }
 
+    public void removeCopies(int numberOfCopies, String booktitle) {
+        Stock stock = getStock(booktitle);
+        stock.removeCopies(numberOfCopies);
+    }
     
     public double totalPrice(){
         double price = 0; 
 //Suponemos que todos los precios son de la misma divisa ya que no existe un 
 //metodo para cambiar de divisa
-        for (Stock element : this.collection){
+        for (StockInterface element : this.collection){
             price += element.totalPrice();
            }
         return price;
