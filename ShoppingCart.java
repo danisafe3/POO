@@ -8,6 +8,7 @@ import org.w3c.dom.Element;
  */
 public class ShoppingCart extends BookCollection implements ShoppingCartInterface{
     private Catalog catalog;
+    private Currency currency;
 
     public ShoppingCart(Catalog catinit) {
         this.catalog = catinit;
@@ -16,32 +17,50 @@ public class ShoppingCart extends BookCollection implements ShoppingCartInterfac
             if (element instanceof Stock){
                 Stock stock = (Stock) element;
                 Stock newStock = new Stock(stock.getBook(), 
-                    stock.numberOfCopies(), stock.getPrice(), stock.getCurrency());
+                    0, stock.getPrice(), stock.getCurrency());
                 this.collection.add(newStock);
+                this.currency = stock.getCurrency();
             }
         }
     }
-   
+    
+    @Override
     public void addCopies(int numberOfCopies, String booktitle) {
-        Stock stock = getStock(booktitle);
-        stock.addCopies(numberOfCopies);
+        super.getStock(booktitle).addCopies(numberOfCopies);
+        this.catalog.removeCopies(numberOfCopies, booktitle);
     }
 
+    @Override
     public void removeCopies(int numberOfCopies, String booktitle) {
-        Stock stock = getStock(booktitle);
-        stock.removeCopies(numberOfCopies);
+        super.getStock(booktitle).removeCopies(numberOfCopies);
+        this.catalog.addCopies(numberOfCopies, booktitle);
     }
     
+    
+    @Override
     public double totalPrice(){
         double price = 0; 
         for (StockInterface element : this.collection){
-            price += element.totalPrice();
-           }
+            if (element instanceof Stock){
+                Stock stock = (Stock) element;
+                price += stock.totalPrice();
+            }
+        }
         return price;
     }
     
+    @Override
     public String checkout(){
-       return null;
- 
+        Payment p = new Payment();
+        String s = p.doPayment(1234567890, "The Hedgehog, Sonic", totalPrice(), this.currency);
+        
+        for (StockInterface element : this.collection ){
+            if (element instanceof Stock){
+                Stock stock = (Stock) element;
+                stock.removeCopies(numberOfCopies(stock.getBookTitle()));
+            }
+        }
+        
+        return(s);
     }
 }

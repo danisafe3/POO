@@ -13,7 +13,7 @@ import org.w3c.dom.NodeList;
 
 public abstract class BookCollection implements BookCollectionInterface {
 
-    protected HashSet< StockInterface> collection;
+    protected HashSet< StockInterface > collection;
 
     public BookCollection() {
         collection = new HashSet< StockInterface >();
@@ -29,7 +29,7 @@ public abstract class BookCollection implements BookCollectionInterface {
         return result;
     }
 
-    public Stock getStock(String booktitle) {
+    protected Stock getStock(String booktitle) {
         for (StockInterface element : collection) {
             if (element instanceof Stock) {
                 Stock stock = (Stock) element;
