@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package bookstore;
 
 import java.text.SimpleDateFormat;
@@ -19,11 +14,10 @@ public class TestStore {
      */
     public static void main(String[] args) {
 
-          Catalog c = new Catalog();
-          ShopppingCart s = new ShoppingCart();
-            
-        }
-
+        Catalog c = new Catalog();
+        ShoppingCart s = new ShoppingCart(c);
+        BookStore bs = new BookStore(c, s);
+        
     }
 
-
+}

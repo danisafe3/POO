@@ -25,15 +25,27 @@ public class Stock implements StockInterface{
     public Book getBook(){
         return this.book;
     }
+    
     public String getBookTitle(){
         return this.book.getTitle();
     }
+    
+    public double getPrice(){
+        return this.price;
+    }
+    
+    public Currency getCurrency(){
+        return this.c;
+    }
+    
     public int numberOfCopies(){
         return this.copies;
     }
+    
     public void addCopies(int numberOfCopies){
         this.copies = this.copies + numberOfCopies;
     }
+    
     public void removeCopies(int numberOfCopies){
         this.copies = this.copies - numberOfCopies;
     }

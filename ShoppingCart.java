@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package bookstore;
 import java.util.HashSet;
 import java.util.Currency;
@@ -16,11 +11,18 @@ public class ShoppingCart extends BookCollection implements ShoppingCartInterfac
 
     public ShoppingCart(Catalog catinit) {
         this.catalog = catinit;
+        
+        for (StockInterface element : this.catalog.collection){
+            if (element instanceof Stock){
+                Stock stock = (Stock) element;
+                Stock newStock = new Stock(stock.getBook(), 
+                    stock.numberOfCopies(), stock.getPrice(), stock.getCurrency());
+                this.collection.add(newStock);
+            }
+        }
     }
    
-        
-    
-  public void addCopies(int numberOfCopies, String booktitle) {
+    public void addCopies(int numberOfCopies, String booktitle) {
         Stock stock = getStock(booktitle);
         stock.addCopies(numberOfCopies);
     }
@@ -32,8 +34,6 @@ public class ShoppingCart extends BookCollection implements ShoppingCartInterfac
     
     public double totalPrice(){
         double price = 0; 
-//Suponemos que todos los precios son de la misma divisa ya que no existe un 
-//metodo para cambiar de divisa
         for (StockInterface element : this.collection){
             price += element.totalPrice();
            }

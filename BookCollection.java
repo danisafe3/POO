@@ -1,4 +1,3 @@
-
 package bookstore;
 
 import java.io.File;
@@ -13,29 +12,34 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 public abstract class BookCollection implements BookCollectionInterface {
-	protected HashSet< StockInterface > collection;
 
-	public BookCollection() {
-		collection = new HashSet< StockInterface >();
-	}
+    protected HashSet< StockInterface> collection;
 
-	public String[] booktitles() {
-		int index = 0;
-		String[] result = new String[collection.size()];
-		for ( StockInterface stock : collection ) {
-			result[index] = stock.getBookTitle();
-			index++;
-		}
-		return result;
-	}
+    public BookCollection() {
+        collection = new HashSet< StockInterface >();
+    }
 
-	public Stock getStock( String booktitle ) {
-		for ( StockInterface stock : collection ) {
-			if ( booktitle.equals( stock.getBookTitle() ) )
-				return stock;
-		}
-		return null;
-	}
+    public String[] booktitles() {
+        int index = 0;
+        String[] result = new String[collection.size()];
+        for (StockInterface stock : collection) {
+            result[index] = stock.getBookTitle();
+            index++;
+        }
+        return result;
+    }
+
+    public Stock getStock(String booktitle) {
+        for (StockInterface element : collection) {
+            if (element instanceof Stock) {
+                Stock stock = (Stock) element;
+                if (booktitle.equals(stock.getBookTitle())) {
+                    return stock;
+                }
+            }
+        }
+        return null;
+    }
 
     public int numberOfCopies(String booktitle) { //le pasamos el titulo del libro y cogemos el stock del libro, luego llamamos al metodo numberOfCopies() para obtener su nºde copias
         Stock stock = getStock(booktitle);
